@@ -1,0 +1,20 @@
+<section id="login">
+    <h1>Log in</h1>
+    <form method="POST" name="login" action="/login">
+        <input name="username" type="text" placeholder="username">
+        {{#if data.username}}
+        <div class="error">
+            Please, Enter you username
+        </div>
+        {{/if}}
+        <input name="password" type="password" placeholder="password">
+        {{#if data.password}}
+        <div class="error">
+            Please, Enter you password
+        </div>
+        {{/if}}
+        <input id="btn" type="submit" value="Login">
+    </form>
+
+
+</section>
