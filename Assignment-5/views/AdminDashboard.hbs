@@ -1,0 +1,87 @@
+<h3 id="userType">{{user.fname}} {{user.lname}}</h3>
+<div>
+    <a href="/logout">logout</a>
+</div>
+<h1>Admin Dashboard</h1>
+<section id="admin">
+    <form method="POST" name="upload" action="/upload" enctype="multipart/form-data">
+        <input name="roomTitle" type="text" placeholder="Room Title"required>
+        <input name="price" type="number" placeholder="price"required>
+        <input name="description" type="text" placeholder="Description/Details"required> 
+        <input name="location" type="text" placeholder="Location" required>
+        <input id="photo" name="photo" type="file" placeholder="Upload a Photo" required>
+        <input id="btn" type="submit" value="Upload">
+    </form>
+
+</section>
+<br>
+<h4> Select a room to edit </h4>
+<section id="listing">
+    <table>
+        <tbody id="t">
+
+            {{#each data}}
+            {{#mod3 @index}}
+
+            <td>
+                <div class="card" id="{{_id}}">
+                    <img src="{{photo}}" />
+                    <h4>{{location}}</h4>
+                    <h3>{{roomTitle}}</h3>
+                    <h5>${{price}} CAD/night</h5>
+                    <h4>{{description}}</h4>
+
+                </div>
+            </td>
+            <tr>
+                {{else}}
+                <td>
+                    <div class="card" id="{{_id}}">
+                        <img src="{{photo}}" />
+                        <h4>{{location}}</h4>
+                        <h3>{{roomTitle}}</h3>
+                        <h5>${{price}} CAD/night</h5>
+                        <h4>{{description}}</h4>
+
+                    </div>
+                </td>
+                {{/mod3}}
+                {{else}}
+            <tr>
+                <td colspan="4">No Data Available</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        let id;
+        const cards = document.querySelectorAll('.card');
+        for (let i = 0; i < cards.length; i++) {
+            
+            cards[i].onclick = function (e) {
+                for (let i = 0; i < cards.length; i++) {
+                            cards[i].className="card";
+
+                }
+                id = cards[i].id
+                str = `<form method="POST" name="update" action="/update" enctype="multipart/form-data">
+        <input name="roomTitle" type="text" placeholder="Room Title"required>
+        <input name="price" type="number" placeholder="price"required>
+        <input name="description" type="text" placeholder="Description/Details"required>
+        <input name="location" type="text" placeholder="Location"required>
+        <input id="photo" name="photo" type="file" placeholder="Upload a Photo" required>
+        <input id="btn"class="btnUpdate" type="submit" value="Update"required>
+        <input type="hidden" name="id" value="`+id+`" />
+    </form>`
+        document.querySelector('#admin').innerHTML = str;
+        cards[i].className="card cardSelected";
+            }
+        }
+        
+
+    });
+    
+</script>

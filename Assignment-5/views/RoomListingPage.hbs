@@ -1,0 +1,65 @@
+<section id="listing">
+    <form method="GET" action="/roomListing">
+        <select name="search" class="search">
+            <option name="" value="0" ></option>
+            <option name="toronto" value="1">Toronto</option>
+            <option name="vancouver" value="2">Vancouver</option>
+            <option name="ottawa" value="3">Ottawa</option>
+        </select>
+        <input type="submit" value="Search">
+    </form>
+    <table>
+        <tbody id="t">
+
+            {{#each data}}
+            {{#mod3 @index}}
+
+            <td>
+                <div class="card"id="{{_id}}">
+                    <img src="{{photo}}" />
+                    <h4>{{location}}</h4>
+                    <h3>{{roomTitle}}</h3>
+                    <h5>${{price}} CAD/night</h5>
+                    <h4>{{description}}</h4>
+
+                </div>
+            </td>
+            <tr>
+                {{else}}
+                <td>
+                    <div class="card" id="{{_id}}">
+                        <img src="{{photo}}" />
+                        <h4>{{location}}</h4>
+                        <h3>{{roomTitle}}</h3>
+                        <h5>${{price}} CAD/night</h5>
+                        <h4>{{description}}</h4>
+
+                    </div>
+                </td>
+                {{/mod3}}
+                {{else}}
+            <tr>
+                <td colspan="4">No Data Available</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+       
+        const cards = document.querySelectorAll('.card');
+        for (let i = 0; i < cards.length; i++) {
+            
+            cards[i].onclick = function (e) {
+                
+            window.location.href = "bookingPage?id="+cards[i].id;
+
+            }
+        }
+        
+
+    });
+    
+</script>

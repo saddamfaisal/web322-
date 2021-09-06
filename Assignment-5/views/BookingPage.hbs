@@ -1,0 +1,88 @@
+<section id="booking">
+    <h1 class="title">Book a time</h1>
+    <form method="GET" name="book" action="/home">
+        <img src="{{data.photo}}" />
+        <h1>{{data.roomTitle}}</h1>
+        <h2>{{data.location}}</h2>
+        <h3>{{data.description}}</h3>
+        <h2 id="price">${{data.price}} CAD/night</h2>
+        <div class="datepicker">
+            <label for="startDate">Start Date</label>
+            <input id="startDate" name="startDate" type="date" required />
+            <label for="endDate">End Date</label>
+            <input id="endDate" name="endDate" type="date" required />
+        </div>
+        <h3 id="displayPrice" hidden></h3>
+        <input type="hidden" name="id" value="{{id}}">
+        <input id="submit" class="btn" type="submit" value="Book Room" disabled>
+    </form>
+
+
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const startDate = document.querySelector('#startDate');
+        const endDate = document.querySelector('#endDate');
+        const displayPrice = document.querySelector('#displayPrice');
+        const price = document.querySelector('#price');
+        const submit = document.querySelector('#submit');
+        let pricePerNight = price.innerHTML.split(' ')[0].substring(1);
+        console.log(pricePerNight);
+
+        startDate.addEventListener('change', function () {
+            if (endDate.value != "") {
+                let start = new Date(startDate.value);
+                let end = new Date(endDate.value);
+                let duration = (end - start) / (1000 * 60 * 60 * 24)
+                let finalPrice = pricePerNight * duration;
+                if (finalPrice < 0) {
+                    displayPrice.className = "red";
+                    displayPrice.innerHTML = "End date cannot be before start date!";
+                    submit.setAttribute('disabled', "");
+                }
+                else if (finalPrice == 0) {
+                    displayPrice.className = "red";
+                    displayPrice.innerHTML = "Start date and end date cannot be the same!";
+                    submit.setAttribute('disabled', "");
+                }
+                else {
+                    displayPrice.className = "green";
+                    displayPrice.innerHTML = "$" + finalPrice + " is the price for " + duration + " days";
+                    submit.removeAttribute('disabled');
+                }
+
+                displayPrice.removeAttribute('hidden')
+            }
+
+        })
+        endDate.addEventListener('change', function () {
+            if (startDate.value != "") {
+                let start = new Date(startDate.value);
+                let end = new Date(endDate.value);
+                let duration = (end - start) / (1000 * 60 * 60 * 24)
+                let finalPrice = pricePerNight * duration;
+                if (finalPrice < 0) {
+                    displayPrice.className = "red";
+                    displayPrice.innerHTML = "End date cannot be before start date!";
+                    submit.setAttribute('disabled', "");
+                }
+                else if (finalPrice == 0) {
+                    displayPrice.className = "red";
+                    displayPrice.innerHTML = "Start date and end date cannot be the same!";
+                    submit.setAttribute('disabled', "");
+                }
+                else {
+                    displayPrice.className = "green";
+                    displayPrice.innerHTML = "$" + finalPrice + " is the price for " + duration + " days";
+                    submit.removeAttribute('disabled');
+                }
+
+                displayPrice.removeAttribute('hidden')
+            }
+        })
+
+
+    })
+
+
+</script>

@@ -1,0 +1,92 @@
+<section>
+    <form id="registeration" method="POST" name="registeration" action="/registeration">
+        <h3>sign up with Facebook or Google</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Email Address" name="email" />
+                        {{#if data.email}}
+                        <div class="error">
+                            Please, Enter you email address
+                        </div>
+                        {{/if}}
+                        {{#if data.emailValidation}}
+                        <div class="error">
+                            Invalid email address
+                        </div>
+                        {{/if}} </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="password" placeholder="Password" name="password" />
+                        {{#if data.password}}
+                        <div class="error">
+                            Please, Enter you password
+                        </div>
+                        {{/if}}
+                        {{#if data.passwordValidation}}
+                        <div class="error">
+                            Your passord must be between 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter
+                        </div>
+                        {{/if}} </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="First name" name="fname" />
+                        {{#if data.fname}}
+                        <div class="error">
+                            Please, Enter you first name
+                        </div>
+                        {{/if}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Last name" name="lname" />
+                        {{#if data.lname}}
+                        <div class="error">
+                            Please, Enter you last name
+                        </div>
+                        {{/if}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lable>Birthday</lable>
+                        <lable>To sign up ,you need to be at least 18,other people who use airbnb will not see your
+                            birthday</lable>
+                    </td>
+                </tr>
+
+                </tr>
+                <tr>
+                    <td><input type="date" name="date" />
+                    {{#if data.date}}
+                        <div class="error">
+                            Please, Enter date
+                        </div>
+                        {{/if}}</td>
+
+                </tr>
+                <tr>
+                <tr>
+                    <td>
+                        <lable>we will send you marketing promotions,special offers,inspirations,and policy updates via
+                            email</lable>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="sign up" value="sign up">
+                    {{#if data.exists}}
+                        <div class="error">
+                            this account has already registered!
+                        </div>
+                        {{/if}}
+                    </td>
+            </tbody>
+        </table>
+
+    </form>
+</section>
