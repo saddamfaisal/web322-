@@ -1,0 +1,176 @@
+body{
+    font-family: sans-serif;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+#logo{
+    width: 100px;
+    padding:40px;
+}
+header a{
+    
+    text-decoration: none;
+    color: black;
+    
+    font-weight: bold;
+    padding:20px;
+    
+}
+header a:hover{
+    color: rgb(255, 87, 123);
+    transition: .1s;
+}
+
+#search{
+    font-size: 1.5em;
+    color: rgb(50,50,50);
+    display: inline-block;
+    margin-top: 100px;
+    border-radius: 20px;
+    padding: 20px;
+    width: 400px;
+    text-align: left;
+    background-color: rgba(200,200,200,0.2);
+}
+input{
+    overflow:hidden;
+    
+    padding:10px;
+    width: 100%;
+}
+table{
+    display: block;
+    width: 100%;
+}
+#promotion{
+
+    text-align: left;
+    height: 300px;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+#promotion h1{
+    color: white;
+    padding: 50px;
+    padding-bottom: 0px;
+    font-size: 5em;
+}
+#promotion p{
+    color: rgb(200,200,200);
+    font-size: 1.5em;
+    width: 500px;
+    padding:20px;
+    margin-top: -80px;
+
+}
+#info{
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    display: block;
+}
+#info img{
+    padding:10px;
+    border-radius: 15px;
+    height:  500px;
+    width: 800px;
+}
+#info h1{
+    font-size: 5em;
+}
+footer{
+    padding:50px;
+    height: 150px;
+    background-color: rgba(200,200,200,0.2);
+}
+footer a{
+    text-decoration: none;
+    color: rgb(255, 87, 123);
+}
+.card img{
+    width: 300px;
+    height: 200px;
+}
+.card{
+    margin: 20px;
+    padding:10px;
+    background-color: rgba(200,200,200,0.2);
+    text-align: left;
+    width: 300px;
+    border-radius: 5px;
+    transition: 0.2s;
+
+}
+.card:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+.cardSelected{
+    background-color:#4CAF50;
+    transform: scale(1.05);
+}
+.btnUpdate{
+    background-color: #4CAF50;
+    border: none;
+    color: white !important;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#listing{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: inline-block;
+    
+}
+#listing select, #listing input{
+    width: 500px;
+    height: 40px;
+    background-color: rgba(200,200,200,0.2);
+    border: none;
+    margin: 5px;
+}
+#listing input{
+    width: 200px !important;
+    background-color: #4CAF50;
+    color: white;
+
+}
+#login {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: inline-block;
+    width: 500px;
+}
+#login input{
+    border: none;
+    margin: 5px;
+    background-color: rgba(200,200,200,0.2);
+}
+#btn{
+    color:green ;
+}
+#registeration{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: inline-block;
+    width: 500px;
+}
+#registeration input{
+    border: none;
+    margin: 5px;
+    background-color: rgba(200,200,200,0.2);
+}
+.error{
+    color: red;
+    
+}
+#admin {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: inline-block;
+    width: 500px;
+}
